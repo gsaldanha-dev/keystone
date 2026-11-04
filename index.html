@@ -41,11 +41,11 @@ footer span { font: 700 14px var(--display); color: var(--gold2); }
   <div class="brand"><div class="stone"></div><div><b>KEYSTONE LIMITED</b><span>VPN Service</span></div></div>
 
   <header>
-    <h1>Instale a Keystone no seu Mac</h1>
-    <p class="lead">Precisa de Mac com chip Apple e macOS 14 ou mais novo.</p>
+    <h1 id="head">Instale a Keystone no seu Mac</h1>
+    <p class="lead" id="lead">Precisa de Mac com chip Apple e macOS 14 ou mais novo.</p>
   </header>
 
-  <p class="note" id="other" hidden><b>Este aparelho não é compatível.</b> A Keystone só funciona em Mac. Abra este link num Mac para instalar.</p>
+  <p class="note" id="other" hidden><b>Este aparelho não é compatível.</b> Abra este link num Mac ou num Chromebook para instalar.</p>
 
   <ol id="steps">
     <li><div><b>Instale o Cloudflare WARP</b><p>Ele é o motor da Keystone. Baixe pelo botão abaixo, abra o arquivo .pkg e siga a instalação. Depois abra o WARP uma vez, aceite os termos e clique em "Permitir" se o macOS pedir. Não precisa ligar nada nele, e depois não mexa mais.</p><a class="cta" href="https://downloads.cloudflareclient.com/v1/download/macos/ga">Baixar o WARP para Mac</a><p>Se preferir o site <a href="https://one.one.one.one" target="_blank" rel="noopener" style="color:var(--gold2)">one.one.one.one</a>, clique em macOS, não em App Store.</p></div></li>
@@ -55,13 +55,25 @@ footer span { font: 700 14px var(--display); color: var(--gold2); }
     <li><div><b>Toque no botão grande</b><p>Digite a senha do Mac se ela for pedida. "Protegido" em verde significa pronto.</p></div></li>
   </ol>
 
+  <ol id="cros" hidden>
+    <li><div><b>Instale o app 1.1.1.1</b><p>É o app gratuito da Cloudflare, sem conta. Ele faz o túnel no Chromebook.</p><a class="cta" href="https://play.google.com/store/apps/details?id=com.cloudflare.onedotonedotonedotone" target="_blank" rel="noopener">Abrir na Play Store</a></div></li>
+    <li><div><b>Ligue o app</b><p>Abra, aceite os termos, toque no botão e permita a VPN quando o Chromebook pedir.</p></div></li>
+    <li><div><b>Desligue se um site reclamar</b><p>No Chromebook tudo passa pelo túnel. Se um banco ou a Wikipedia recusar VPN, desligue o app enquanto usa esse site.</p></div></li>
+  </ol>
+
   <footer><small>POWERED &amp; SPONSORED BY</small><span>The Saldanha Organization</span></footer>
 </div>
 <script>
 // iPad se apresenta como Macintosh, por isso o teste de toque.
 const isMac = /Macintosh/.test(navigator.userAgent) && navigator.maxTouchPoints < 2;
-document.getElementById("other").hidden = isMac;
+const isCros = /CrOS/.test(navigator.userAgent);
+document.getElementById("other").hidden = isMac || isCros;
 document.getElementById("steps").hidden = !isMac;
+document.getElementById("cros").hidden = !isCros;
+if (isCros) {
+  document.getElementById("head").textContent = "Instale no seu Chromebook";
+  document.getElementById("lead").textContent = "No Chromebook, o túnel é o app 1.1.1.1 da Cloudflare.";
+}
 </script>
 </body>
 </html>
