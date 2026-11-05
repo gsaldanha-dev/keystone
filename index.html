@@ -27,6 +27,8 @@ ol > li::before { content: counter(s); font: 700 18px/1.4 var(--display); color:
 li b { display: block; }
 li p { margin: 2px 0 0; color: var(--fg2); }
 .cta { display: inline-block; margin-top: 10px; font-weight: 700; font-size: 15px; color: var(--ink); background: var(--gold); border-radius: 10px; padding: 11px 18px; text-decoration: none; }
+code { display: block; margin-top: 8px; padding: 10px 12px; background: rgba(255,255,255,.07); border-radius: 8px; color: var(--gold2); font: 13px ui-monospace, Menlo, monospace; overflow-wrap: anywhere; user-select: all; }
+li strong { color: var(--fg); }
 a:focus-visible { outline: 2px solid var(--gold2); outline-offset: 2px; }
 .note { margin: 0; border-left: 3px solid var(--warn); padding: 2px 0 2px 14px; color: var(--fg2); font-size: 15px; }
 .note b { color: var(--fg); }
@@ -48,10 +50,10 @@ footer span { font: 700 14px var(--display); color: var(--gold2); }
   <p class="note" id="other" hidden><b>Este aparelho não é compatível.</b> Abra este link num Mac ou num Chromebook para instalar.</p>
 
   <ol id="steps">
-    <li><div><b>Instale o Cloudflare WARP</b><p>Ele é o motor da Keystone. Baixe pelo botão abaixo, abra o arquivo .pkg e siga a instalação. Depois abra o WARP uma vez, aceite os termos e clique em "Permitir" se o macOS pedir. Não precisa ligar nada nele, e depois não mexa mais.</p><a class="cta" href="https://downloads.cloudflareclient.com/v1/download/macos/ga">Baixar o WARP para Mac</a><p>Se preferir o site <a href="https://one.one.one.one" target="_blank" rel="noopener" style="color:var(--gold2)">one.one.one.one</a>, clique em macOS, não em App Store.</p></div></li>
+    <li><div><b>Instale o Cloudflare WARP</b><p>Ele é o motor da Keystone. Baixe pelo botão abaixo, abra o arquivo .pkg e siga a instalação. Abra o WARP uma vez e, quando ele perguntar, escolha <strong>Navegação privada</strong> (Private browsing), não Cloudflare One. Aceite os termos e clique em "Permitir" se o macOS pedir. Não precisa ligar nada nele, e depois não mexa mais.</p><a class="cta" href="https://downloads.cloudflareclient.com/v1/download/macos/ga">Baixar o WARP para Mac</a><p>Se preferir o site <a href="https://one.one.one.one" target="_blank" rel="noopener" style="color:var(--gold2)">one.one.one.one</a>, clique em macOS, não em App Store.</p></div></li>
     <li><div><b>Baixe a Keystone</b><p>O arquivo vem com o app, um guia e um script de resgate.</p><a class="cta" href="Keystone.zip" download>Baixar Keystone.zip</a></div></li>
     <li><div><b>Arraste para Aplicativos</b><p>Abra o zip e arraste Keystone.app para a pasta Aplicativos.</p></div></li>
-    <li><div><b>Libere na primeira abertura</b><p>O macOS bloqueia porque o app não vem da App Store. Tente abrir, clique em OK e vá em Ajustes do Sistema → Privacidade e Segurança → "Abrir Mesmo Assim".</p></div></li>
+    <li><div><b>Libere na primeira abertura</b><p>O macOS avisa que não conseguiu verificar o app, porque ele não vem da App Store. Isso é esperado. Dê dois cliques na Keystone e clique em <strong>Concluído</strong>, não em "Mover para o Lixo". Depois vá em Ajustes do Sistema → Privacidade e Segurança, role até o fim, clique em <strong>Abrir Mesmo Assim</strong>, digite a senha e confirme.</p><p>Se o botão não aparecer, abra o Terminal, cole esta linha e aperte Enter. Depois abra a Keystone de novo.</p><code>xattr -dr com.apple.quarantine /Applications/Keystone.app</code></div></li>
     <li><div><b>Toque no botão grande</b><p>Digite a senha do Mac se ela for pedida. "Protegido" em verde significa pronto.</p></div></li>
   </ol>
 
